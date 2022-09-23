@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+	<title>Tugas 6</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <br/>
+	<h3 align="center">"INFO GEMPA"</h3>
+	<br/>
+	<table align="center" class="table-bordered" cellpadding="8">
+    <tr align="center">
+      <th scope="col">No</th>
+      <th scope="col">Lokasi</th>
+      <th scope="col">Skala</th>
+      <th scope="col">Dampak</th>
+    </tr>
+  </thead>
+</body>
+</html>
+<script>
+    let no = 1;
+	class Gempa{
+		constructor(lokasi, skala, dampak){
+			this.lokasi = lokasi;
+			this.skala = skala;
+			this.dampak = dampak;
+		}
+		getDampak(){
+			if(this.skala <=2){
+				this.dampak = 'Tidak Terasa';
+			}
+			else if(this.skala >= 2 && this.skala <4){
+				this.dampak = 'Bangunan Retak-retak';
+			}
+			else if(this.skala >= 4 && this.skala <6){
+				this.dampak = 'Bangunan Roboh';
+			}
+			else if(this.skala >= 6){
+				this.dampak = 'Bangunan Roboh dan Berpotensi Tsunami';
+			}
+			return this.dampak;
+		}
+		infoGempa(){
+			document.write( `<tr>
+			<td scope="row">${no++}</td>
+			<td>${this.lokasi}</td>
+			<td>${this.skala}</td>
+			<td>${this.getDampak()}</td>
+			</tr>`);
+		}
+	}
+g1 = new  Gempa('Bandung',2.5);
+g2 = new  Gempa('Aceh',4.5);
+g3 = new  Gempa('Cirebon',5.5);
+g4 = new  Gempa('Medan',6);
+g5 = new  Gempa('Padang',3.4);
+g6 = new  Gempa('Palembang',2.1);
+g7 = new  Gempa('Monokwari',2);
+g8 = new  Gempa('Papua',4.9);
+g9 = new  Gempa('Kalimantan',2);
+g10 = new Gempa('Jawa Timur',8.6);
+
+g1.infoGempa(); 
+g2.infoGempa(); 
+g3.infoGempa(); 
+g4.infoGempa(); 
+g5.infoGempa(); 
+g6.infoGempa(); 
+g7.infoGempa(); 
+g8.infoGempa(); 
+g9.infoGempa(); 
+g10.infoGempa();
+</script>
+</table>
